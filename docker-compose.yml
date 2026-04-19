@@ -21,9 +21,7 @@ services:
     container_name: ${APP_NAME}_backend
     working_dir: /app
     expose:
-      - "${BACKEND_PORT}"
-    ports:
-      - "${BACKEND_PORT}"  
+      - "${BACKEND_PORT}" 
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1
