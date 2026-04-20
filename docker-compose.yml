@@ -34,7 +34,7 @@ services:
         reservations:
           memory: 64M
     healthcheck:
-      test: ["CMD", "python", "-c", "import socket; s=socket.socket(); s.connect(('localhost',${BACKEND_PORT}))"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:${BACKEND_PORT}/nginx-python-health"]
       interval: 10s
       timeout: 3s
       retries: 3
