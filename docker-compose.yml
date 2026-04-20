@@ -46,8 +46,8 @@ services:
     working_dir: /etc/nginx
     ports:
       - "${NGINX_HOST_PORT}:${NGINX_PORT}"  # Хост:Контейнер
-    depends_on:
-      - backend
+    backend:
+      condition: service_healthy
     restart: unless-stopped
     networks:
       - app-network
