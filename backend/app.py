@@ -17,7 +17,7 @@ class Handler(BaseHTTPRequestHandler):
         app_name = os.getenv('APP_NAME', 'unknown')
         working_dir = os.getcwd()
         
-        message = f"Hello from Effective Mobile!"
+        message = f"Hello from Effective Mobile!\n"
         
         self.wfile.write(message.encode())
     
