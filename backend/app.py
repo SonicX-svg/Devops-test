@@ -4,6 +4,11 @@ import os
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
+        if self.path == "/nginx-python-health":
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b'OK')
+            return
         self.send_response(200)
         self.send_header('Content-type', 'text/plain; charset=utf-8')
         self.end_headers()
@@ -16,10 +21,6 @@ class Handler(BaseHTTPRequestHandler):
         
         self.wfile.write(message.encode())
     
-    def do_GET_health(self):  # Эндпоинт для healthcheck
-        self.send_response(200)
-        self.end_headers()
-        self.wfile.write(b'OK')
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer): 
     pass
