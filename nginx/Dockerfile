@@ -1,4 +1,5 @@
-FROM nginx:1.26-alpine
+ARG NGINX_VERSION
+FROM nginx:${NGINX_VERSION}
 
 # Устанавливаем curl для healthcheck (один пакет, без лишнего мусора)
 RUN apk add --no-cache curl
