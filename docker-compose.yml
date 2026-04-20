@@ -42,8 +42,8 @@ services:
       retries: 3
 
   # Nginx — прокси на бэкенд
-  nginx:
-    image: nginx:${NGINX_VERSION}
+  nginx: 
+    build: ./nginx
     container_name: ${APP_NAME}_nginx
     working_dir: /etc/nginx
     ports:
